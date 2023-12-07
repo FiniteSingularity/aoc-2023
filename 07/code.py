@@ -2,7 +2,7 @@
 Day 7 of Advent of code
 """
 # Relative strength of each card used for
-# lexigrpahical scoring of the hand.
+# lexicographical scoring of the hand.
 strength = {
     'A': 13,
     'K': 12,
@@ -46,7 +46,7 @@ def score_hands(hands: list[list[str, int, int]]):
         # plus the number of jokers
         res[0]+=jokers
 
-        # Now we do a lexigraphical score for the order of the cards in the hand.
+        # Now we do a lexicographical score for the order of the cards in the hand.
         # Because there are 14 possible values for a card, we need to multiply
         # the reverse card index by a power of 100.
         order_strength = 0
@@ -54,8 +54,8 @@ def score_hands(hands: list[list[str, int, int]]):
             order_strength += 100**i*strength[char]
 
         # Finally, score the hand based on the descending number of matched cards,
-        # then add on the legigraphical score of the card. The huge numbers are 
-        # due to the lexigraphical score having max values of 100^5
+        # then add on the lexicographical score of the card. The huge numbers are 
+        # due to the lexicographical score having max values of 100^5
         hand[1] = res[0]*1e12+res[1]*1e11+order_strength
     hands.sort(key=lambda v: v[1])
 
