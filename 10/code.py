@@ -1,5 +1,5 @@
 """
-Day 9 of Advent of code
+Day 10 of Advent of code
 """
 import math
 
